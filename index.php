@@ -23,7 +23,13 @@
  * Utilisé pour la documentation technique
  * @param string $nom Le nom de l'utilisateur
  */
+
+/* sensibilité à la casse*/
+/*ECHO "Cela fonctionne !"; // Les mots-clés sont insensibles
+$nom = "Alice";
+echo $Nom; // Erreur ! Les variables SONT sensibles à la casse*/
 ?>
+
 
 <a href="index.php">Accueil</a>
 <a href="01-code.php">Code</a>
