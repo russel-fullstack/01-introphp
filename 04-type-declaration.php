@@ -70,3 +70,24 @@ $prod = new Produit();
 echo $prod->nom = "Chaise";
 echo $prod->prix = 49.99;
 echo $prod->description = "Une chaise confortable";
+
+#constantes de classe
+// Constantes de configuration
+const DB_HOTE = "localhost";
+const DB_NOM = "mon_app";
+
+// Constantes d'application dans une classe
+class App {
+    public const VERSION = "1.0.0";
+    public const ENV = "development";
+
+    public const ENVIRONNEMENTS = [
+        "development",
+        "staging",
+        "production"
+    ];
+}
+
+echo "Version de l'App : " . App::VERSION;
+echo "Connecté à : " . DB_HOTE;
+?>
