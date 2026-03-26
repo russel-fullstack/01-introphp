@@ -50,3 +50,25 @@ $indexe = [1, 2, 3];
 $associatif = ["nom" => "Jean", "age" => 30];
 echo "$indexe[0]<br>"; // Affiche 1
 echo "$associatif[nom]<br>"; // Affiche Jean
+
+$var = "M. Klaude";       // Valeur nulle (absence de valeur)
+gettype($var);      // Retourne le type sous forme de chaîne
+is_string($var);    // Vérification booléenne
+is_int($var);
+is_float($var);
+is_bool($var);
+is_array($var);
+is_null($var);
+
+echo gettype($var) . "<br>"; // Affiche "string"
+echo is_string($var) ? "C'est une chaîne" : "Ce n'est pas une chaîne"; // Affiche "C'est une chaîne"    
+echo "<br>";
+echo is_int($var) ? "C'est un entier" : "Ce n'est pas un entier"; // Affiche "Ce n'est pas un entier"    
+echo "<br>";
+echo is_float($var) ? "C'est un float" : "Ce n'est pas un float"; // Affiche "Ce n'est pas un float"    
+echo "<br>";
+echo is_bool($var) ? "C'est un booléen" : "Ce n'est pas un booléen"; // Affiche "Ce n'est pas un booléen"    
+echo "<br>";
+echo is_array($var) ? "C'est un tableau" : "Ce n'est pas un tableau"; // Affiche "Ce n'est pas un tableau"    
+echo "<br>";
+echo is_null($var) ? "C'est une valeur nulle" : "Ce n'est pas une valeur nulle"; // Affiche "Ce n'est pas une valeur nulle"
