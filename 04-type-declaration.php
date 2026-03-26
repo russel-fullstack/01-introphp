@@ -58,3 +58,15 @@ deboguer("Test");
 deboguer(123);
 deboguer([1, 2, 3]);
 deboguer(null);
+
+class Produit {
+    public string $nom;
+    public float $prix;
+    public ?string $description = null;
+    private int $stock = 0;
+}
+
+$prod = new Produit();
+echo $prod->nom = "Chaise";
+echo $prod->prix = 49.99;
+echo $prod->description = "Une chaise confortable";
