@@ -49,3 +49,12 @@ function chercher(int|null $id): int|null {
     // Identique ci-dessus
     return $id;
 }
+
+#Accepte n'importe quel type (mixed)
+function deboguer(mixed $valeur): void {
+    var_dump($valeur);
+}
+deboguer("Test");
+deboguer(123);
+deboguer([1, 2, 3]);
+deboguer(null);
