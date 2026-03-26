@@ -13,3 +13,19 @@ function saluer(string $nom): void {
 
 saluer("Alice"); // Fonctionne
 #saluer(123);     // TypeError !
+
+#Type de Retour
+
+function additionner(int $a, int $b): int {
+    return $a + $b;
+}
+
+/*function trouverUtilisateur(int $id): ?User { // ? permet null
+    return $id > 0 ? new User() : null;
+}*/
+function journaliser(string $msg): void { // Pas de retour
+    echo $msg;
+}
+additionner(5, 10); // Retourne 15
+//trouverUtilisateur(1); // Retourne un objet User ou null
+journaliser("Une action a été effectuée."); // Affiche le message
