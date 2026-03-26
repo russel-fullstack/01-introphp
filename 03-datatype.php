@@ -14,7 +14,7 @@ EOT;
 
 echo "$simpleQuote<br>";
 echo "$doubleQuote<br>";
-echo "$heredoc";
+echo "$heredoc<br>";
 
 ;#2. Integer (Entier)
 $decimal = 42;           // Décimal
@@ -29,3 +29,11 @@ echo "$octal<br>";
 echo "$hex<br>";
 echo "$binaire<br>";
 echo "$lisible<br>";
+
+#3. Float (Nombre à virgule flottante)
+$prix = 19.99;
+$scientifique = 1.2e3;  // 1200
+$negatif = -0.5;
+echo "$prix<br>";
+echo "$scientifique<br>";
+echo "$negatif<br>";
