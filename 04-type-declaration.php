@@ -27,5 +27,12 @@ function journaliser(string $msg): void { // Pas de retour
     echo $msg;
 }
 additionner(5, 10); // Retourne 15
-//trouverUtilisateur(1); // Retourne un objet User ou null
 journaliser("Une action a été effectuée."); // Affiche le message
+
+# PHP 8.0+) : Types d'union
+function traiterID(int|string $id): void {
+    echo "Traitement : $id <br>";
+}
+
+traiterID(42);        // Fonctionne
+traiterID("ABC123");  // Fonctionne aussi
