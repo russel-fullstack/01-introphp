@@ -37,3 +37,16 @@ $negatif = -0.5;
 echo "$prix<br>";
 echo "$scientifique<br>";
 echo "$negatif<br>";
+
+#4. Boolean (Booléen)
+$estActif = true;    // Vrai
+$estInactif = false; // Faux
+echo "$estActif<br>";   // Affiche 1
+echo "$estInactif<br>"; // Affiche rien (équivalent à 0)
+
+
+#5. Array (Tableau)
+$indexe = [1, 2, 3];
+$associatif = ["nom" => "Jean", "age" => 30];
+echo "$indexe[0]<br>"; // Affiche 1
+echo "$associatif[nom]<br>"; // Affiche Jean
