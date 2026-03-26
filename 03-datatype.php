@@ -72,3 +72,24 @@ echo "<br>";
 echo is_array($var) ? "C'est un tableau" : "Ce n'est pas un tableau"; // Affiche "Ce n'est pas un tableau"    
 echo "<br>";
 echo is_null($var) ? "C'est une valeur nulle" : "Ce n'est pas une valeur nulle"; // Affiche "Ce n'est pas une valeur nulle"
+
+
+$valeurs = [
+    "Bonjour",
+    42,
+    3.14,
+    true,
+    [1, 2, 3],
+    null
+];
+
+foreach ($valeurs as $valeur) {
+    echo gettype($valeur) . " : ";
+    var_dump($valeur);
+    echo "\n";
+}
+
+
+echo "<pre>";
+print_r($associatif);
+echo "</pre>";
