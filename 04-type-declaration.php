@@ -7,7 +7,8 @@ echo '<h1>Voici du variables PHP dans une page HTML</h1>
 echo "hello";
 
 
-function saluer(string $nom): void {
+function saluer(string $nom): void
+{
     echo "Bonjour, $nom !";
 }
 
@@ -16,21 +17,24 @@ saluer("Alice"); // Fonctionne
 
 #Type de Retour
 
-function additionner(int $a, int $b): int {
+function additionner(int $a, int $b): int
+{
     return $a + $b;
 }
 
 /*function trouverUtilisateur(int $id): ?User { // ? permet null
     return $id > 0 ? new User() : null;
 }*/
-function journaliser(string $msg): void { // Pas de retour
+function journaliser(string $msg): void
+{ // Pas de retour
     echo $msg;
 }
 additionner(5, 10); // Retourne 15
 journaliser("Une action a été effectuée."); // Affiche le message
 
 # PHP 8.0+) : Types d'union
-function traiterID(int|string $id): void {
+function traiterID(int|string $id): void
+{
     echo "Traitement : $id <br>";
 }
 
@@ -38,20 +42,23 @@ traiterID(42);        // Fonctionne
 traiterID("ABC123");  // Fonctionne aussi
 
 #Types Nullable
-function chercher1(?int $id): ?int {
+function chercher1(?int $id): ?int
+{
     // $id peut être int ou null
     // Retourne string ou null
     return $id;
 }
 
 // Syntaxe union PHP 8.0+ (équivalent)
-function chercher(int|null $id): int|null {
+function chercher(int|null $id): int|null
+{
     // Identique ci-dessus
     return $id;
 }
 
 #Accepte n'importe quel type (mixed)
-function deboguer(mixed $valeur): void {
+function deboguer(mixed $valeur): void
+{
     var_dump($valeur);
 }
 deboguer("Test");
@@ -59,7 +66,8 @@ deboguer(123);
 deboguer([1, 2, 3]);
 deboguer(null);
 
-class Produit {
+class Produit
+{
     public string $nom;
     public float $prix;
     public ?string $description = null;
@@ -77,7 +85,8 @@ const DB_HOTE = "localhost";
 const DB_NOM = "mon_app";
 
 // Constantes d'application dans une classe
-class App {
+class App
+{
     public const VERSION = "1.0.0";
     public const ENV = "development";
 
@@ -91,3 +100,69 @@ class App {
 echo "Version de l'App : " . App::VERSION;
 echo "Connecté à : " . DB_HOTE;
 ?>
+
+<?php
+function somme(int ...$nombres): int
+{
+    return array_sum($nombres);
+}
+
+echo somme(1, 2, 3)."<br>";       // 6
+echo somme(1, 2, 3, 4, 5)."<br>"; // 15
+
+function calculerRemise(
+    float $prix,
+    float $pourcentageRemise = 10.0,
+    float $remiseMax = 50.0
+): float {
+    $remise = $prix * ($pourcentageRemise / 100);
+
+    // Plafonner la remise
+    if ($remise > $remiseMax) {
+        $remise = $remiseMax;
+    }
+
+    return $prix - $remise;
+}
+
+// Utilisation de la fonction
+$original = 100.00;
+$final = calculerRemise($original, pourcentageRemise: 15.0);
+
+echo "Prix original : $original € <br>";
+echo "Après remise : $final € <br>";
+?>
+
+<?php
+$compteur = 0;
+
+function incrementer() {
+    global $compteur; // Référencer la variable globale
+    $compteur++;
+}
+
+incrementer();
+echo $compteur; // 1
+
+$saluer = function(string $nom): string {
+    return "Bonjour, $nom !";
+};
+
+echo $saluer("Alice"); 
+// Bonjour, Alice !
+echo "<br>";
+$nombres = [1, 2, 3, 4, 5];
+
+// Doubler chaque nombre
+$doubles = array_map(function($n) {
+    return $n * 2;
+}, $nombres);
+
+print_r($doubles); // [2, 4, 6, 8, 10]
+
+// Filtrer les nombres pairs
+$pairs = array_filter($nombres, function($n) {
+    return $n % 2 === 0;
+});
+
+print_r($pairs); // [2, 4]
