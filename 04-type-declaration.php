@@ -166,3 +166,45 @@ $pairs = array_filter($nombres, function($n) {
 });
 
 print_r($pairs); // [2, 4]
+$multiplicateur = 3;
+
+$multiplier = function(int $n) use ($multiplicateur): int {
+    return $n * $multiplicateur;
+};
+
+echo $multiplier(5); // 15
+
+$total = 0;
+
+$ajouter = function(int $montant) use (&$total): void {
+    $total += $montant; // Modifie la variable originale
+};
+
+$ajouter(10);
+$ajouter(20);
+echo $total; // 30
+
+$utilisateur = [
+    'nom'    => 'Jean Dupont',
+    'email'  => 'jean@example.com',
+    'age'    => 30,
+    'actif'  => true,
+];
+
+echo $utilisateur['nom'];   // Jean Dupont
+echo $utilisateur['email']; // jean@example.com
+
+// Ajouter/mettre à jour
+$utilisateur['telephone'] = '06 12 34 56 78';
+$utilisateur['age'] = 31; // Mise à jour
+
+$coordonnees = [10, 20, 30];
+[$x, $y, $z] = $coordonnees;
+echo "$x, $y, $z"; // 10, 20, 30
+
+// Ignorer des valeurs
+[, , $z] = $coordonnees;
+
+// Avec des clés
+$utilisateur = ['nom' => 'Jean', 'email' => 'jean@test.com'];
+['nom' => $nom, 'email' => $email] = $utilisateur;
