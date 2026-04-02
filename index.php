@@ -36,7 +36,7 @@ echo $Nom; // Erreur ! Les variables SONT sensibles à la casse*/
 <a href="02-variable.php">Variables</a><br>
 <a href="03-datatype.php">types de données</a><br>
 <a href="04-type-declaration.php">déclaration de types</a><br>
-<a href="05-array.php">fonctions</a>
+<a href="05-array.php">Tableaux</a>
 
 </body>
 </html>
