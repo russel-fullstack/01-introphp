@@ -34,3 +34,15 @@
     prenom = prompt('entrez votre prenom');
     alert('Bonjour ' + prenom + ' et bienvenu');
    </script>";
+
+   function direbonjour (string $c): void  
+   {
+        echo "bonjour $c";
+   }
+direbonjour("russel");
+function carree (int|string $n ) : void
+{
+    echo pow($n, 2);
+}
+
+carree(20);
