@@ -27,15 +27,15 @@ echo '<h1>Voici les types de données PHP dans une page HTML</h1>
   }
 
   // Robustesse du mot de passe
-  // if (strlen($data['motdepasse']) < 8) {
-  //   $erreurs['motdepasse'] = 'Le mot de passe doit contenir au moins 8 caractères';
-  // }
+  if (strlen($motdepasse) < 8) {
+    $erreurs['motdepasse'] = 'Le mot de passe doit contenir au moins 8 caractères';
+  }
 
   // Plage numérique
-  // $age = filter_var($data['age'], FILTER_VALIDATE_INT);
-  // if ($age === false || $age < 18 || $age > 120) {
-  //   $erreurs['age'] = "L'âge doit être compris entre 18 et 120";
-  // }
+  $age = filter_var($data['age'], FILTER_VALIDATE_INT);
+  if ($age === false || $age < 18 || $age > 120) {
+    $erreurs['age'] = "L'âge doit être compris entre 18 et 120";
+  }
 }
   
  ?>
@@ -51,7 +51,7 @@ echo '<h1>Voici les types de données PHP dans une page HTML</h1>
   <title>Document</title>
 </head>
 
-<body>
+<body>                                
   <!-- <form action="traitement.php" method="POST">
     <input type="text" name="nom" />
     <input type="email" name="email" />
@@ -63,25 +63,35 @@ echo '<h1>Voici les types de données PHP dans une page HTML</h1>
   <?php else: ?>
     <form method="POST">
       <label for="nom">Nom :</label>
-      <input type="text" name="nom" value=""> <br>
+      <input type="text" name="nom" value="<?= $nom ?>"> <br>
       <?php if (isset($erreurs['nom'])): 
         echo '<p style="color: red;">' . $erreurs['nom'] . '</p>';
       endif;
         ?>
       <br>
       <label for="email">Email :</label>
-      <input name="email" value=""> <br>
+      <input name="email" value="<?= $email ?>"> <br>
       <?php if (isset($erreurs['email'])): 
         echo '<p style="color: red;">' . $erreurs['email'] . '</p>';
       endif;
         ?>
       <br>
       <label for="motdepasse">Mot de passe :</label>
-      <input type="password" name="motdepasse" value=""> <br><br>
+      <input type="password" name="motdepasse" value="<?= $motdepasse ?>"> <br>
+      <?php if (isset($erreurs['motdepasse'])): 
+        echo '<p style="color: red;">' . $erreurs['motdepasse'] . '</p>';
+      endif;
+        ?>
+      <br>
       <label for="message">Message :</label>
-      <textarea name="message"></textarea> <br><br>
+      <textarea name="message"><?= $message ?></textarea> <br><br>
       <label for="age">Âge :</label>
-      <input type="number" name="age" value=""> <br><br>
+      <input type="number" name="age" value="<?= $age ?>"> <br>
+      <?php if (isset($erreurs['age'])): 
+        echo '<p style="color: red;">' . $erreurs['age'] . '</p>';
+      endif;
+        ?>
+      <br>
       <button type="submit" name="soumettre">Envoyer</button>
     </form>
   <?php endif; ?>
